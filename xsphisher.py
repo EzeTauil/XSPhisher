@@ -11,7 +11,6 @@ from utils.colors import Colors
 from core.engine import PhishingEngine
 
 def main():
-    """Punto de entrada principal de XSPhisher"""
     os.system('clear' if os.name == 'posix' else 'cls')
     show_banner()
 

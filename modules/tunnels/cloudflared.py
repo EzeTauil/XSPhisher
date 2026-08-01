@@ -16,15 +16,12 @@ class CloudflaredTunnel:
     def connect(self, port):
         Colors.print_info("Iniciando Cloudflared...")
 
-        # Verificar si cloudflared está instalado
         if not self._check_installed():
             Colors.print_warning("Cloudflared no está instalado")
             Colors.print_info("Instalando Cloudflared...")
             if not self._install():
                 Colors.print_error("No se pudo instalar Cloudflared")
                 return False
-
-        # Eliminar log anterior
         if os.path.exists(self.log_file):
             os.remove(self.log_file)
 
@@ -73,7 +70,6 @@ class CloudflaredTunnel:
         except:
             pass
 
-        # Intentar de nuevo después de más tiempo
         time.sleep(5)
         try:
             if os.path.exists(self.log_file):
@@ -87,7 +83,6 @@ class CloudflaredTunnel:
             pass
 
     def _check_installed(self):
-        """Verifica si cloudflared está instalado"""
         try:
             subprocess.run(['cloudflared', '--version'],
                          stdout=subprocess.DEVNULL,

