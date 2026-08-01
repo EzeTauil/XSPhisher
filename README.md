@@ -149,11 +149,11 @@ python xsphisher.py
 | 9 | Fb Messenger     | 25 | Wordpress       | 41 | Xbox           |
 | 10 | Fb Security     | 26 | Xbox            | 42 | Yahoo          |
 | 11 | Github          | 27 | Yahoo           | 43 | Yandex         |
-| 12 | Gitlab          | 28 | Yandex          | 44 | ...            |
-| 13 | Google          | 29 | Instagram       | 45 | ...            |
-| 14 | Google New      | 30 | Ig Followers    | 46 | ...            |
-| 15 | Google Poll     | 31 | Ig Verify       | 47 | ...            |
-| 16 | Linkedin        | 32 | Mediafire       | | |
+| 12 | Gitlab          | 28 | Yandex          | -- | ...            |
+| 13 | Google          | 29 | Instagram       | -- | ...            |
+| 14 | Google New      | 30 | Ig Followers    | -- | ...            |
+| 15 | Google Poll     | 31 | Ig Verify       | -- | ...            |
+| 16 | Linkedin        | 32 | Mediafire       | -- |
 
 ---
 
@@ -212,7 +212,7 @@ The author is not responsible for any misuse of this toolkit. By using this soft
 
 |          Feature          |       Zphisher    |     XSPhisher        |
 |---------------------------|-------------------|----------------------|
-| Templates                 | 30+               | 47+                  |
+| Templates                 | 30+               | 40+                  |
 | Device fingerprint        | ❌                | ✅                   |
 | Geolocation               | ❌                | ✅                   |
 | Live credential display   | Basic             | Enhanced with colors |
