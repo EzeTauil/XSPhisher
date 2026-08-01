@@ -54,23 +54,13 @@ Built for **security researchers, penetration testers, and CTF players** who nee
 ## Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/EzeTauil/XSPhisher.git
-cd XSPhisher
-
-# Install all
-
-# Dar permisos de ejecución
+# Install all dependencies (Python, PHP, Ngrok)
 chmod +x install.sh
-
-# Ejecutar
 ./install.sh
 
-# Install PHP (required for serving templates)
-# On Arch Linux:
-sudo pacman -S php
-# On Debian/Ubuntu:
-sudo apt install php
+# Configure your tokens (optional, for Ngrok)
+cp .env.example .env
+# Edit .env and add your NGROK_TOKEN
 
 # Run
 python xsphisher.py
