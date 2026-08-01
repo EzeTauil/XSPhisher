@@ -54,7 +54,17 @@ Built for **security researchers, penetration testers, and CTF players** who nee
 ## Installation
 
 ```bash
-# Install all dependencies (Python, PHP, Ngrok)
+# Clone the repository
+git clone https://github.com/EzeTauil/XSPhisher.git
+cd XSPhisher
+
+# Create and activate virtual environment (recommended)
+python3 -m venv venv
+source venv/bin/activate  # On Linux/Mac
+# or
+venv\Scripts\activate  # On Windows
+
+# Install all dependencies
 chmod +x install.sh
 ./install.sh
 
