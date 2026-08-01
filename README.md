@@ -58,8 +58,13 @@ Built for **security researchers, penetration testers, and CTF players** who nee
 git clone https://github.com/EzeTauil/XSPhisher.git
 cd XSPhisher
 
-# Install dependencies
-pip install -r requirements.txt
+# Install all
+
+# Dar permisos de ejecución
+chmod +x install.sh
+
+# Ejecutar
+./install.sh
 
 # Install PHP (required for serving templates)
 # On Arch Linux:
