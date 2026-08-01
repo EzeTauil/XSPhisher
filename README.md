@@ -68,16 +68,13 @@ venv\Scripts\activate  # On Windows
 chmod +x install.sh
 ./install.sh
 
-# Configure your tokens (optional, for Ngrok)
-cp .env.example .env
-# Edit .env and add your NGROK_TOKEN
-
 # Run
 python xsphisher.py
 ```
 
 > Requirements: Python 3.10+, PHP 7.4+, Linux or Termux
 
+> **Note:** When you use Ngrok for the first time, the tool will ask for your token and save it in `.env` automatically.
 ---
 
 ## Quick Start
@@ -139,24 +136,24 @@ python xsphisher.py
 
 ### Available Templates (47+)
 
-| # | Template | # | Template | # | Template |
-|---|----------|---|----------|---|----------|
-| 1 | Adobe | 17 | Protonmail | 33 | Snapchat |
-| 2 | Badoo | 18 | Spotify | 34 | Stackoverflow |
-| 3 | DeviantArt | 19 | Reddit | 35 | Steam |
-| 4 | Discord | 20 | Tiktok | 36 | Telegram |
-| 5 | Dropbox | 21 | Twitch | 37 | Twitter |
-| 6 | Ebay | 22 | Vk | 38 | Vk Poll |
-| 7 | Facebook | 23 | Vk Poll | 39 | Whatsapp |
-| 8 | Fb Advanced | 24 | Whatsapp | 40 | Wordpress |
-| 9 | Fb Messenger | 25 | Wordpress | 41 | Xbox |
-| 10 | Fb Security | 26 | Xbox | 42 | Yahoo |
-| 11 | Github | 27 | Yahoo | 43 | Yandex |
-| 12 | Gitlab | 28 | Yandex | 44 | ... |
-| 13 | Google | 29 | Instagram | 45 | ... |
-| 14 | Google New | 30 | Ig Followers | 46 | ... |
-| 15 | Google Poll | 31 | Ig Verify | 47 | ... |
-| 16 | Linkedin | 32 | Mediafire | | |
+| # | Template         |  # | Template        | #  | Template       |
+|---|------------------|----|-----------------|----|----------------|
+| 1 | Adobe            | 17 | Protonmail      | 33 | Snapchat       |
+| 2 | Badoo            | 18 | Spotify         | 34 | Stackoverflow  |
+| 3 | DeviantArt       | 19 | Reddit          | 35 | Steam          |
+| 4 | Discord          | 20 | Tiktok          | 36 | Telegram       |
+| 5 | Dropbox          | 21 | Twitch          | 37 | Twitter        |
+| 6 | Ebay             | 22 | Vk              | 38 | Vk Poll        |
+| 7 | Facebook         | 23 | Vk Poll         | 39 | Whatsapp       |
+| 8 | Fb Advanced      | 24 | Whatsapp        | 40 | Wordpress      |
+| 9 | Fb Messenger     | 25 | Wordpress       | 41 | Xbox           |
+| 10 | Fb Security     | 26 | Xbox            | 42 | Yahoo          |
+| 11 | Github          | 27 | Yahoo           | 43 | Yandex         |
+| 12 | Gitlab          | 28 | Yandex          | 44 | ...            |
+| 13 | Google          | 29 | Instagram       | 45 | ...            |
+| 14 | Google New      | 30 | Ig Followers    | 46 | ...            |
+| 15 | Google Poll     | 31 | Ig Verify       | 47 | ...            |
+| 16 | Linkedin        | 32 | Mediafire       | | |
 
 ---
 
@@ -172,15 +169,15 @@ XSPhisher/
 │   │   ├── cloudflared.py
 │   │   ├── ngrok.py
 │   │   └── localhost.py
-│   └── templates/
-│       └── manager.py
 ├── templates/             # 47+ phishing templates
 ├── utils/
 │   ├── colors.py          # ANSI color system
 │   ├── banner.py          # ASCII banners
 │   └── helpers.py         # Helper functions
 ├── xsphisher.py           # Entry point
-└── requirements.txt       # Python dependencies
+├── requirements.txt       # Python dependencies
+├── install.sh             # Installation script
+└── .env.example           # Token template
 ```
 
 ---
@@ -213,15 +210,15 @@ The author is not responsible for any misuse of this toolkit. By using this soft
 
 ## Why XSPhisher?
 
-| Feature | Zphisher | XSPhisher |
-|---------|----------|-----------|
-| Templates | 30+ | 47+ |
-| Device fingerprint | ❌ | ✅ |
-| Geolocation | ❌ | ✅ |
-| Live credential display | Basic | Enhanced with colors |
-| Export formats | TXT only | JSON, CSV |
-| Modular codebase | Bash + PHP | Python (modular) |
-| Active development | Abandoned | Active |
+|          Feature          |       Zphisher    |     XSPhisher        |
+|---------------------------|-------------------|----------------------|
+| Templates                 | 30+               | 47+                  |
+| Device fingerprint        | ❌                | ✅                   |
+| Geolocation               | ❌                | ✅                   |
+| Live credential display   | Basic             | Enhanced with colors |
+| Export formats            | TXT only          | JSON, CSV            |
+| Modular codebase          | Bash + PHP        | Python (modular)     |
+| Active development        | Abandoned         | Active               |
 
 ---
 
